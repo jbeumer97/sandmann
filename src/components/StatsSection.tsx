@@ -85,7 +85,7 @@ export default function StatsSection() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.2, duration: 0.8 }}
+                transition={{ delay: index * 0.2, duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
                 className="flex flex-col items-center text-center space-y-4 px-8"
               >
                 <div className="flex items-baseline">

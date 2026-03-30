@@ -29,7 +29,7 @@ export default function TCMSection() {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             className="space-y-10"
           >
             <div className="space-y-4">
@@ -67,7 +67,7 @@ export default function TCMSection() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             className="glass-dark p-12 rounded-[4rem] border-white/5 relative group overflow-hidden"
           >
             <div className="absolute top-0 right-0 p-8 text-sand-gold/20 group-hover:text-sand-gold/40 transition-colors">

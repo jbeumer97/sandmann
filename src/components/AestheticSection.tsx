@@ -37,7 +37,7 @@ export default function AestheticSection() {
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
+                  transition={{ duration: 0.8, ease: "easeOut", delay: i * 0.1 }}
                   className="flex items-center gap-4 group cursor-default"
                 >
                   <div className="w-8 h-8 rounded-full bg-sand-sun flex items-center justify-center text-sand-gold group-hover:bg-forest-deep transition-all">

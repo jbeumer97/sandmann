@@ -4,9 +4,27 @@ import { motion } from 'framer-motion';
 import { Wind, Sun, Droplets } from 'lucide-react';
 
 const doshas = [
-  { name: 'Vata', icon: Wind, color: 'text-blue-200', desc: 'Bewegung & Kreativität' },
-  { name: 'Pitta', icon: Sun, color: 'text-orange-200', desc: 'Transformation & Energie' },
-  { name: 'Kapha', icon: Droplets, color: 'text-emerald-200', desc: 'Stabilität & Struktur' },
+  { 
+    name: 'Vata', 
+    icon: Wind, 
+    color: 'text-blue-200', 
+    desc: 'Bewegung & Kreativität',
+    details: 'Beruhigung des Nervensystems durch nährende Ölbehandlungen (Abhyanga) und erdende Rhythmen für mehr Fokus und Gelassenheit.'
+  },
+  { 
+    name: 'Pitta', 
+    icon: Sun, 
+    color: 'text-orange-200', 
+    desc: 'Transformation & Energie',
+    details: 'Kühlung und Entlastung bei Entzündungen oder Stress durch sanfte Ausleitung und harmonisierende Kräutertherapien.'
+  },
+  { 
+    name: 'Kapha', 
+    icon: Droplets, 
+    color: 'text-emerald-200', 
+    desc: 'Stabilität & Struktur',
+    details: 'Aktivierung des Stoffwechsels durch belebende Pulvermassagen (Udvartana) und befreiendes Detox für neue Vitalität.'
+  },
 ];
 
 export default function AyurvedaSection() {
@@ -27,10 +45,10 @@ export default function AyurvedaSection() {
           {doshas.map((dosha, i) => (
             <motion.div
               key={dosha.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.2 }}
+              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: i * 0.2 }}
               className="glass-premium p-12 rounded-[3rem] text-center space-y-6 hover:-translate-y-2 transition-all duration-700 hover:shadow-2xl group"
             >
               <div className={`w-20 h-20 mx-auto rounded-full bg-forest-deep flex items-center justify-center ${dosha.color} shadow-xl group-hover:scale-110 transition-transform duration-700`}>
@@ -39,8 +57,8 @@ export default function AyurvedaSection() {
               <h3 className="text-3xl font-playfair text-forest-deep">{dosha.name}</h3>
               <p className="text-sand-gold font-outfit text-sm uppercase tracking-widest">{dosha.desc}</p>
               <div className="w-10 h-0.5 bg-forest-deep/10 mx-auto"></div>
-              <p className="text-forest-deep/60 font-outfit text-sm leading-relaxed">
-                Ganzheitliche Ernährungsberatung, Lebensstil-Anpassungen und spezifische Reinigungskuren für Ihre Konstitution.
+              <p className="text-forest-deep/60 font-outfit text-sm leading-relaxed min-h-[80px]">
+                {dosha.details}
               </p>
             </motion.div>
           ))}
