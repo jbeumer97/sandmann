@@ -20,8 +20,8 @@ export default function Hero() {
       <motion.div style={{ y, opacity }} className="absolute inset-0 z-0 scale-110">
         <img 
           src="/images/hero-premium.png" 
-          alt="Naturheilzentrum Sandmann Preview" 
-          className="w-full h-full object-cover"
+          alt="Naturheilzentrum Sandmann Wellness" 
+          className="w-full h-full object-cover filter brightness-[0.85] saturate-[0.9]"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-sand-sun scale-105"></div>
       </motion.div>
