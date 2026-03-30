@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --font-playfair: "Playfair Display", serif;
+  --font-outfit: "Outfit", sans-serif;
+  
+  --color-forest-deep: #4E6155;
+  --color-forest-muted: #808F83;
+  --color-sand-sun: #FAF6F0;
+  --color-sand-gold: #D1BFAE;
+  --color-sage-glow: #B5C2B9;
+
+  --animate-breathe: breathe 10s ease-in-out infinite;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(1.03); filter: brightness(1.1); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+}
+
+@layer base {
+  body {
+    @apply leading-[1.8] bg-sand-sun text-forest-deep font-outfit;
+  }
+
+  h1, h2, h3 {
+    @apply font-playfair font-medium tracking-wide;
+  }
+}
+
+@layer components {
+  .glass-premium {
+    @apply bg-white/20 backdrop-blur-3xl border border-white/20 shadow-[0_8px_32px_0_rgba(78,97,85,0.05)];
+  }
+
+  .glass-dark {
+    @apply bg-forest-deep/40 backdrop-blur-2xl border border-white/10 shadow-xl;
+  }
+
+  .btn-premium {
+    @apply px-10 py-4 bg-forest-deep text-sand-sun font-medium rounded-full transition-all duration-500 hover:bg-sand-gold hover:scale-105 hover:shadow-xl relative overflow-hidden;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-8 md:px-16 lg:px-24;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px rgba(168, 189, 177, 0.4);
+  }
+}

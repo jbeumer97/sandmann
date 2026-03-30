@@ -1,0 +1,89 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Philosophie & Praxis | Naturheilzentrum Sandmann" description="Erfahren Sie mehr über unsere ganzheitliche Heilphilosophie, unsere Geschichte und das Gründer-Duo Dimitri & Irina Sandmann.">
+	<main class="relative bg-sand-sun min-h-screen pt-48 pb-24 overflow-hidden">
+		
+		{/* Hero Section */}
+		<section class="section-container space-y-16 mb-40">
+			<div class="max-w-4xl space-y-12">
+				<span class="text-sand-gold font-playfair italic text-3xl">Unsere Philosophie</span>
+				<h1 class="text-7xl md:text-9xl font-playfair text-forest-deep leading-[0.9] tracking-tighter mix-blend-multiply">
+					Verstehen, <br /><span class="italic font-medium">nicht nur behandeln.</span>
+				</h1>
+				<p class="text-2xl font-outfit text-forest-deep/80 leading-relaxed font-light">
+					Im Naturheilzentrum Sandmann betrachten wir Gesundheit nicht als die bloße Abwesenheit von Krankheit, sondern als ein tiefes, harmonisches Gleichgewicht von Körper, Geist und Seele. Seit über 25 Jahren begleiten wir Menschen auf ihrem individuellen Weg zu mehr Vitalität und innerer Balance.
+				</p>
+			</div>
+		</section>
+
+		{/* Founders Section */}
+		<section class="section-container mb-40">
+			<div class="grid lg:grid-cols-2 gap-24 items-center">
+				<div class="relative aspect-[4/5] rounded-[4rem] overflow-hidden shadow-[0_30px_60px_-15px_rgba(78,97,85,0.2)]">
+					<img 
+						src="/images/founders_working.jpg" 
+						alt="Dimitri & Irina Sandmann in der Praxis" 
+						loading="lazy"
+						class="w-full h-full object-cover"
+					/>
+					<div class="absolute inset-0 bg-forest-deep/10"></div>
+				</div>
+				<div class="space-y-12">
+					<div class="space-y-6">
+						<span class="text-sand-gold font-playfair italic text-2xl">Zwei Wege, ein Ziel</span>
+						<h2 class="text-5xl font-playfair text-forest-deep">Dimitri & Irina Sandmann</h2>
+						<div class="space-y-6 text-lg font-outfit text-forest-deep/70 leading-relaxed">
+							<p>
+								Unsere Praxis entstand aus der tiefen Überzeugung, dass wahre Unterstützung der Gesundheit nur entstehen kann, wenn wir den Menschen in seiner Gesamtheit betrachten. Wir vereinen jahrzehntelange Erfahrung in der Traditionellen Chinesischen Medizin (TCM) und der ayurvedischen Tradition.
+							</p>
+							<p>
+								Diese einzigartige Symbiose zweier der ältesten Medizinsysteme der Welt ermöglicht es uns, eine interdisziplinäre Sichtweise auf Ihre Beschwerden zu werfen. Wir bekämpfen keine Symptome – wir suchen nach den Ursachen.
+							</p>
+							<p>
+								Jeder Patient bringt eine eigene Geschichte, eine eigene Konstitution und eigene energetische Blockaden mit. Unser Ziel ist es, Ihnen nicht nur therapeutisch zur Seite zu stehen, sondern Ihnen das Wissen und die Werkzeuge an die Hand zu geben, um Ihre Gesundheit langfristig selbst zu erhalten.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		{/* Holistic Approach */}
+		<section class="bg-forest-deep text-sand-sun py-32 rounded-[4rem] mx-4 md:mx-12 lg:mx-24 mb-40 relative overflow-hidden">
+			<div class="absolute inset-0 opacity-20 bg-gradient-to-br from-forest-deep via-forest-muted to-sand-gold mix-blend-overlay"></div>
+			<div class="section-container relative z-10 space-y-24">
+				<div class="text-center max-w-3xl mx-auto space-y-6">
+					<h2 class="text-5xl md:text-6xl font-playfair text-sand-gold">Die Säulen unserer Therapie</h2>
+					<p class="text-xl font-outfit text-sand-sun/70 font-light">Wir kombinieren altbewährtes Wissen mit modernster Diagnostik, um den optimalen Behandlungsplan für Sie zu entwerfen.</p>
+				</div>
+				
+				<div class="grid md:grid-cols-3 gap-8">
+					<div class="p-10 glass-dark border border-white/5 rounded-3xl space-y-6 hover:-translate-y-2 transition-transform duration-500">
+						<div class="text-4xl">🌿</div>
+						<h4 class="font-playfair text-2xl font-medium text-sand-gold">Ursachenforschung</h4>
+						<p class="text-sm opacity-80 leading-relaxed font-outfit">Anstatt lediglich Schmerzen zu unterdrücken, nutzen wir die bewährte Puls- und Zungendiagnostik der TCM sowie die ayurvedische Konstitutionsbestimmung, um den wahren Auslöser Ihres Leidens zu identifizieren.</p>
+					</div>
+					<div class="p-10 glass-dark border border-white/5 rounded-3xl space-y-6 hover:-translate-y-2 transition-transform duration-500">
+						<div class="text-4xl">☯️</div>
+						<h4 class="font-playfair text-2xl font-medium text-sand-gold">Energetische Balance</h4>
+						<p class="text-sm opacity-80 leading-relaxed font-outfit">Ob Akupunktur, Schröpfen oder ayurvedische Massagen: Unser Ziel ist es stets, den blockierten Energiefluss (Qi) wiederherzustellen und Ihr inneres Gleichgewicht zurückzubringen.</p>
+					</div>
+					<div class="p-10 glass-dark border border-white/5 rounded-3xl space-y-6 hover:-translate-y-2 transition-transform duration-500">
+						<div class="text-4xl">✨</div>
+						<h4 class="font-playfair text-2xl font-medium text-sand-gold">Darmgesundheit & Ästhetik</h4>
+						<p class="text-sm opacity-80 leading-relaxed font-outfit">Wahre Schönheit und Vitalität kommen von innen. Mit mikrobiologischer Darmsanierung und der Colon-Hydro-Therapie stärken wir Ihr Immunsystem von Grund auf, ergänzt durch sanfte ästhetische Behandlungen.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		{/* Closing Note */}
+		<section class="section-container text-center space-y-12 mb-20 max-w-4xl mx-auto">
+			<h2 class="text-4xl font-playfair text-forest-deep italic">"Wir freuen uns darauf, Sie auf Ihrem Weg zu mehr Leichtigkeit und Vitalität zu begleiten."</h2>
+			<div class="w-16 h-0.5 bg-sand-gold/50 mx-auto"></div>
+			<p class="font-outfit text-forest-deep/60 tracking-widest uppercase text-sm">Ihre Heilpraktiker <br/><br/> Dimitri & Irina Sandmann</p>
+		</section>
+	</main>
+</Layout>

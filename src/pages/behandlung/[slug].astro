@@ -1,0 +1,111 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { treatments } from '../../data/treatments';
+import { motion } from "framer-motion";
+import { ArrowLeft, CheckCircle2, Clock, Activity, Sparkles } from "lucide-react";
+
+export function getStaticPaths() {
+  return treatments.map((t) => ({
+    params: { slug: t.slug },
+    props: { treatment: t },
+  }));
+}
+
+const { treatment } = Astro.props;
+---
+
+<Layout title={`${treatment.title} | Naturheilzentrum Sandmann`}>
+	<main class="relative bg-sand-sun min-h-screen pt-32 pb-24">
+		<div class="section-container">
+			<a href="/" class="inline-flex items-center gap-2 text-forest-deep/40 hover:text-sand-gold transition-colors font-outfit uppercase tracking-widest text-xs mb-12">
+				<ArrowLeft size={16} /> Zurück zur Übersicht
+			</a>
+
+			<div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+				<div class="space-y-12 min-w-0">
+					<div class="space-y-6">
+						<span class="text-sand-gold font-playfair italic text-xl lg:text-2xl">{treatment.category}</span>
+						<h1 class="text-5xl lg:text-6xl xl:text-7xl font-playfair text-forest-deep leading-[1.1] break-words hyphens-auto" lang="de">
+							{treatment.title}
+						</h1>
+						<p class="text-xl font-outfit text-sand-gold italic tracking-wide">
+							{treatment.subtitle}
+						</p>
+					</div>
+
+					<div class="glass-premium p-10 rounded-[3rem] space-y-6">
+						<h3 class="text-2xl font-playfair text-forest-deep">Über die Behandlung</h3>
+						<p class="text-lg font-outfit text-forest-deep/70 leading-relaxed">
+							{treatment.description}
+						</p>
+					</div>
+
+					<div class="grid md:grid-cols-2 gap-8">
+						<div class="space-y-6">
+							<div class="flex items-center gap-3 text-sand-gold font-playfair text-xl italic">
+								<Activity size={20} /> Der Ablauf
+							</div>
+							<ul class="space-y-4">
+								{treatment.process.map((step, idx) => (
+									<li class="flex gap-4 text-forest-deep/70 font-outfit">
+										<span class="font-bold text-forest-deep/20">{idx + 1}</span>
+										{step}
+									</li>
+								))}
+							</ul>
+						</div>
+
+						<div class="space-y-6">
+							<div class="flex items-center gap-3 text-sand-gold font-playfair text-xl italic">
+								<Sparkles size={20} /> Ihre Vorteile
+							</div>
+							<ul class="space-y-4">
+								{treatment.benefits.map((benefit) => (
+									<li class="flex items-start gap-4 text-forest-deep/70 font-outfit">
+										<CheckCircle2 size={18} class="text-sand-gold mt-1 shrink-0" />
+										{benefit}
+									</li>
+								))}
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="space-y-12">
+					<div class="relative aspect-[4/5] rounded-[4rem] overflow-hidden shadow-2xl">
+						<img 
+							src={treatment.image} 
+							alt={treatment.title} 
+							class="w-full h-full object-cover"
+						/>
+						<div class="absolute inset-0 bg-forest-deep/10"></div>
+					</div>
+
+					<div class="glass-dark p-12 rounded-[4rem] text-sand-sun space-y-8">
+						<div class="flex items-center gap-4 text-sand-gold">
+							<div class="p-3 bg-sand-gold/20 rounded-full">
+								<Activity size={24} />
+							</div>
+							<h4 class="text-2xl font-playfair">Wann hilft es?</h4>
+						</div>
+						<div class="grid gap-4">
+							{treatment.symptoms.map((symp) => (
+								<div class="px-6 py-4 bg-white/5 rounded-2xl border border-white/10 font-outfit text-lg">
+									{symp}
+								</div>
+							))}
+						</div>
+					</div>
+
+					<div class="bg-forest-muted p-12 rounded-[4rem] text-center space-y-8">
+						<h3 class="text-3xl font-playfair text-white">Fragen oder <br />Terminwunsch?</h3>
+						<p class="text-sand-sun/60 font-outfit">Gerne beraten wir Sie persönlich zu dieser Behandlung.</p>
+						<a href="/kontakt" class="btn-premium block bg-sand-gold text-forest-deep hover:bg-white hover:text-forest-deep">
+							Jetzt Anfragen
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</Layout>

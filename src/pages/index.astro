@@ -1,0 +1,135 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.tsx';
+import TCMSection from '../components/TCMSection.tsx';
+import AyurvedaSection from '../components/AyurvedaSection.tsx';
+import AestheticSection from '../components/AestheticSection.tsx';
+---
+
+<Layout title="Naturheilzentrum Sandmann | Ayurveda, TCM & Ästhetik Meerbusch">
+	<main class="relative bg-sand-sun overflow-x-hidden">
+		<Hero client:load />
+
+		{/* Philosophy Brief Overlay */}
+		<section id="philosophy" class="py-24 bg-white/50 backdrop-blur-sm scroll-mt-32">
+			<div class="section-container text-center space-y-8">
+				<div class="max-w-4xl mx-auto space-y-10">
+					<h2 class="text-4xl md:text-6xl font-playfair text-forest-deep leading-tight">
+						Gesundheit ist mehr als die Abwesenheit von Krankheit: <br />
+						<span class="italic text-sand-gold font-medium">Körper, Geist & Seele im Einklang</span>
+					</h2>
+					<div class="w-32 h-0.5 bg-sand-gold/30 mx-auto"></div>
+					<p class="text-2xl font-outfit font-light text-forest-deep/70 leading-relaxed">
+						"Wir betrachten Sie in Ihrer vollkommenen Gesamtheit. Statt lediglich Symptome zu behandeln, ergründen wir die tiefen Ursachen Ihrer Beschwerden, um den Weg zu einem nachhaltigen, balancierten Wohlbefinden zu ebnen." 
+					</p>
+					<p class="text-sm font-outfit uppercase tracking-[0.3em] text-forest-deep/30">
+						Praxis für ganzheitliche Medizin • Meerbusch
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<TCMSection client:visible />
+		<AyurvedaSection client:visible />
+		<AestheticSection client:visible />
+
+		{/* Colon-Hydro-Therapie Featured Section */}
+		<section id="detox" class="py-32 bg-sand-sun relative overflow-hidden scroll-mt-32">
+			<div class="section-container">
+				<div class="grid lg:grid-cols-2 gap-20 items-center">
+					<div class="space-y-8">
+						<span class="text-sand-gold font-playfair italic text-2xl">Inneres Gleichgewicht</span>
+						<h2 class="text-5xl md:text-7xl font-playfair text-forest-deep leading-tight">
+							Vitalität durch <br /><span class="italic">Darmgesundheit</span>
+						</h2>
+						<p class="text-xl font-outfit text-forest-deep/60 leading-relaxed">
+							Wahres Wohlbefinden entsteht im Zentrum Ihres Körpers. Die ganzheitliche Darmsanierung und Colon-Hydro-Therapie bilden eine wichtige Basis zur Unterstützung eines intakten Immunsystems und neuer Lebensenergie. Durch modernste, absolut hygienische Methoden begleiten wir Sie behutsam zu Ihrer tiefgreifenden Regeneration.
+						</p>
+						<div class="flex gap-4">
+							<a href="/behandlung/colon-hydro-therapie" class="btn-premium border-none">
+								Mehr über Colon-Hydro
+							</a>
+							<a href="/behandlung/darmsanierung" class="btn-premium bg-transparent border border-forest-deep text-forest-deep hover:text-forest-deep">
+								Darmsanierung
+							</a>
+						</div>
+					</div>
+					
+					<div class="relative aspect-square rounded-[4rem] overflow-hidden shadow-2xl group">
+						<img 
+							src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?q=80&w=1974&auto=format&fit=crop" 
+							alt="Colon-Hydro-Therapie" 
+							loading="lazy" 
+							decoding="async"
+							class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+						/>
+						<div class="absolute inset-0 bg-forest-deep/10"></div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		{/* Contact Section */}
+		<section id="kontakt" class="py-32 bg-white relative scroll-mt-32">
+			<div class="section-container space-y-16 lg:space-y-24">
+				<div class="text-center space-y-6">
+					<h2 class="text-5xl md:text-7xl font-playfair text-forest-deep">Kontakt</h2>
+					<p class="text-xl md:text-2xl font-outfit font-light text-forest-deep/60">Lassen Sie uns Ihren persönlichen Weg zu mehr Lebensqualität gemeinsam gestalten.</p>
+				</div>
+
+				<div class="grid lg:grid-cols-2 gap-12 lg:gap-24 w-full">
+					<div class="glass-premium p-8 lg:p-10 rounded-[3rem] space-y-10">
+						<div class="space-y-6">
+							<h4 class="font-playfair text-2xl md:text-3xl font-bold uppercase tracking-tighter">Naturheilzentrum Sandmann</h4>
+							<div class="space-y-4 text-lg md:text-xl font-outfit text-forest-deep/70">
+								<p>Dimitri & Irina Sandmann<br />Heilpraktiker</p>
+								<p>Telefon: +49 (0) 2159 8159903<br />medizin@naturheilzentrum-sandmann.de</p>
+								<p class="text-sm italic text-sand-gold">Standort Meerbusch / Düsseldorf</p>
+							</div>
+						</div>
+						<div class="w-full h-64 lg:h-80 rounded-3xl overflow-hidden border border-forest-deep/10 shadow-lg">
+							<iframe 
+								src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39968.177266395345!2d6.641604!3d51.266209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b8c8d8c2279769%3A0x42760fc4a2a7aa0!2sMeerbusch!5e0!3m2!1sen!2sde!4v1715000000000!5m2!1sen!2sde" 
+								width="100%" 
+								height="100%" 
+								style="border:0;" 
+								allowfullscreen="" 
+								loading="lazy" 
+								referrerpolicy="no-referrer-when-downgrade">
+							</iframe>
+						</div>
+					</div>
+
+					<div class="bg-forest-muted/90 backdrop-blur-xl border border-white/5 p-8 lg:p-10 rounded-[3rem] text-sand-sun space-y-8 shadow-[0_20px_60px_-15px_rgba(78,97,85,0.3)] relative overflow-hidden">
+						<h3 class="text-3xl lg:text-4xl font-playfair mb-4">Nachricht senden</h3>
+						<form id="contact-form" class="space-y-6 transition-opacity duration-500">
+							<input required type="text" placeholder="IHR NAME" class="w-full bg-transparent border-b border-white/30 py-3 focus:border-sand-gold outline-none transition-colors uppercase tracking-widest text-xs text-white placeholder:text-white/60" />
+							<input required type="email" placeholder="IHRE E-MAIL" class="w-full bg-transparent border-b border-white/30 py-3 focus:border-sand-gold outline-none transition-colors uppercase tracking-widest text-xs text-white placeholder:text-white/60" />
+							<textarea required placeholder="WIE KÖNNEN WIR HELFEN?" rows="3" class="w-full bg-transparent border-b border-white/30 py-3 focus:border-sand-gold outline-none transition-colors uppercase tracking-widest text-xs text-white placeholder:text-white/60 resize-none"></textarea>
+							<button type="submit" class="btn-premium w-full text-sand-sun bg-forest-deep/80 border border-white/20 hover:bg-sand-gold hover:text-forest-deep py-4 tracking-widest">TERMIN ANFRAGEN</button>
+						</form>
+						<div id="success-message" class="absolute inset-0 bg-forest-deep flex flex-col items-center justify-center text-center p-10 opacity-0 pointer-events-none transition-opacity duration-500 z-10">
+							<div class="w-16 h-16 rounded-full bg-sand-gold/20 flex items-center justify-center mb-6 text-sand-gold">
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+							</div>
+							<h4 class="text-3xl font-playfair text-sand-gold mb-4">Vielen Dank!</h4>
+							<p class="text-sm font-outfit text-white/60">Ihre Nachricht wurde erfolgreich gesendet. Wir melden uns in Kürze bei Ihnen.</p>
+						</div>
+						<script is:inline>
+							const form = document.getElementById('contact-form');
+							const successMessage = document.getElementById('success-message');
+							if(form && successMessage) {
+								form.addEventListener('submit', (e) => {
+									e.preventDefault();
+									form.style.opacity = '0';
+									successMessage.style.opacity = '1';
+									successMessage.style.pointerEvents = 'auto';
+								});
+							}
+						</script>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+</Layout>
