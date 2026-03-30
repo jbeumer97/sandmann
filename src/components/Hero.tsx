@@ -15,7 +15,7 @@ export default function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
-    <section ref={containerRef} className="relative h-screen min-h-[800px] flex items-center justify-center overflow-hidden bg-sand-sun pt-32">
+    <section ref={containerRef} className="relative h-screen min-h-[800px] flex items-center justify-center overflow-hidden bg-sand-sun pt-24">
       {/* Immersive Parallax Background */}
       <motion.div style={{ y, opacity }} className="absolute inset-0 z-0 scale-110">
         <img 
@@ -31,7 +31,7 @@ export default function Hero() {
       <div className="absolute bottom-[10%] -right-[5%] w-[30vh] h-[30vh] bg-sand-gold/10 blur-[120px] rounded-full animate-breathe delay-1000"></div>
 
       {/* Hero Content */}
-      <div className="section-container relative z-10 text-center space-y-16 mt-24">
+      <div className="section-container relative z-10 text-center space-y-16 mt-8">
         <motion.div
            initial={{ opacity: 0, y: 30 }}
            animate={{ opacity: 1, y: 0 }}
