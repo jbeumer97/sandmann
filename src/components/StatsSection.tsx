@@ -8,16 +8,19 @@ const stats = [
     value: 30,
     suffix: '+',
     label: 'Jahre Erfahrung',
+    color: 'text-[#5B6759]'
   },
   {
     value: 100,
     suffix: '%',
     label: 'Zufriedene Patienten',
+    color: 'text-sand-gold'
   },
   {
     value: 30,
     suffix: '+',
     label: 'Behandlungsmethoden',
+    color: 'text-[#5B6759]'
   },
 ];
 
@@ -86,10 +89,10 @@ export default function StatsSection() {
                 className="flex flex-col items-center text-center space-y-4 px-8"
               >
                 <div className="flex items-baseline">
-                  <span className="text-6xl md:text-8xl font-playfair font-bold text-[#5B6759] tracking-tight">
+                  <span className={`text-6xl md:text-8xl font-outfit font-bold ${stat.color} tracking-tighter`}>
                     <AnimatedNumber value={stat.value} />
                   </span>
-                  <span className="text-4xl md:text-5xl font-playfair font-medium text-sand-gold ml-1">
+                  <span className={`text-4xl md:text-5xl font-outfit font-medium ${stat.color === 'text-sand-gold' ? 'text-[#5B6759]' : 'text-sand-gold'} ml-1`}>
                     {stat.suffix}
                   </span>
                 </div>
