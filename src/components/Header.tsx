@@ -48,33 +48,31 @@ const Header: React.FC = () => {
           </a>
 
           {/* Middle: Links */}
-          <div className="hidden lg:flex gap-4 xl:gap-8 items-center absolute left-1/2 -translate-x-1/2 z-10 w-max max-w-[50vw] justify-center">
-            <a href="/" className="text-[13px] xl:text-sm font-medium tracking-wide uppercase text-forest-deep/90 hover:text-forest-deep transition-colors whitespace-nowrap">Startseite</a>
-            <a href="/philosophie" className="text-[13px] xl:text-sm font-medium tracking-wide uppercase text-forest-deep/90 hover:text-forest-deep transition-colors whitespace-nowrap">Philosophie</a>
-            <a href="/team" className="text-[13px] xl:text-sm font-medium tracking-wide uppercase text-forest-deep/90 hover:text-forest-deep transition-colors whitespace-nowrap">Unser Team</a>
-            
+          <div className="hidden lg:flex gap-6 xl:gap-10 items-center justify-center flex-1 ml-12">
             <Dropdown 
               menu={{ items: behandlungenMenu, className: "bg-white/40 backdrop-blur-2xl border border-white/20 shadow-2xl rounded-2xl font-playfair !p-2" }} 
               overlayClassName="pt-6" 
               placement="bottom"
             >
-              <a href="/behandlungen" onClick={(e) => e.preventDefault()} className="text-[13px] xl:text-sm font-medium tracking-wide uppercase text-forest-deep/90 hover:text-forest-deep transition-colors flex items-center gap-1 cursor-pointer whitespace-nowrap">
+              <a href="/behandlungen" onClick={(e) => e.preventDefault()} className="text-[13px] xl:text-sm font-medium tracking-widest uppercase text-forest-deep/90 hover:text-sand-gold transition-colors flex items-center gap-1 cursor-pointer whitespace-nowrap group">
                 Behandlungen
               </a>
             </Dropdown>
 
-            <a href="/blog" className="text-[13px] xl:text-sm font-medium tracking-wide uppercase text-forest-deep/90 hover:text-forest-deep transition-colors whitespace-nowrap">Blog</a>
-            <a href="/kontakt" className="text-[13px] xl:text-sm font-medium tracking-wide uppercase text-forest-deep/90 hover:text-forest-deep transition-colors whitespace-nowrap">Kontakt</a>
+            <a href="/team" className="text-[13px] xl:text-sm font-medium tracking-widest uppercase text-forest-deep/90 hover:text-sand-gold transition-colors whitespace-nowrap">Unser Team</a>
+            <a href="/philosophie" className="text-[13px] xl:text-sm font-medium tracking-widest uppercase text-forest-deep/90 hover:text-sand-gold transition-colors whitespace-nowrap">Philosophie</a>
+            <a href="/blog" className="text-[13px] xl:text-sm font-medium tracking-widest uppercase text-forest-deep/90 hover:text-sand-gold transition-colors whitespace-nowrap">Magazin</a>
+            <a href="/kontakt" className="text-[13px] xl:text-sm font-medium tracking-widest uppercase text-forest-deep/90 hover:text-sand-gold transition-colors whitespace-nowrap">Kontakt</a>
           </div>
 
           {/* Right: CTA Button */}
-          <div className="flex items-center gap-4">
-            <a href="/kontakt" className="btn-premium px-6 xl:px-8 py-2.5 text-[13px] xl:text-sm font-medium tracking-widest uppercase relative z-10 shrink-0 hidden md:block whitespace-nowrap">
+          <div className="flex items-center gap-6 ml-8">
+            <a href="/kontakt" className="btn-premium px-6 xl:px-8 py-3 text-[13px] xl:text-sm font-medium tracking-widest uppercase relative z-10 shrink-0 hidden md:block whitespace-nowrap">
               Termin buchen
             </a>
             {/* Mobile Menu Toggle */}
             <button 
-              className="lg:hidden text-forest-deep flex items-center justify-center relative z-[110] bg-white/50 p-2 rounded-full backdrop-blur-sm focus:outline-none"
+              className="lg:hidden text-forest-deep flex items-center justify-center relative z-[110] bg-white/50 p-2 rounded-full backdrop-blur-sm focus:outline-none hover:text-sand-gold transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X size={24} /> : <MenuIcon size={24} />}
@@ -86,13 +84,12 @@ const Header: React.FC = () => {
         <div 
           className={`fixed inset-0 h-screen w-screen bg-sand-sun/98 backdrop-blur-2xl z-[100] transition-all duration-500 lg:hidden flex flex-col items-center justify-center space-y-8 ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
         >
-          <a href="/" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-playfair text-forest-deep uppercase tracking-widest hover:text-sand-gold transition-colors">Startseite</a>
-          <a href="/philosophie" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-playfair text-forest-deep uppercase tracking-widest hover:text-sand-gold transition-colors">Philosophie</a>
-          <a href="/team" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-playfair text-forest-deep uppercase tracking-widest hover:text-sand-gold transition-colors">Unser Team</a>
           <a href="/behandlungen" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-playfair text-forest-deep uppercase tracking-widest hover:text-sand-gold transition-colors">Behandlungen</a>
-          <a href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-playfair text-forest-deep uppercase tracking-widest hover:text-sand-gold transition-colors">Blog</a>
+          <a href="/team" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-playfair text-forest-deep uppercase tracking-widest hover:text-sand-gold transition-colors">Unser Team</a>
+          <a href="/philosophie" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-playfair text-forest-deep uppercase tracking-widest hover:text-sand-gold transition-colors">Philosophie</a>
+          <a href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-playfair text-forest-deep uppercase tracking-widest hover:text-sand-gold transition-colors">Magazin</a>
           <a href="/kontakt" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-playfair text-forest-deep uppercase tracking-widest hover:text-sand-gold transition-colors">Kontakt</a>
-          <a href="/kontakt" onClick={() => setIsMobileMenuOpen(false)} className="btn-premium px-10 py-4 text-base mt-8">Termin buchen</a>
+          <a href="/kontakt" onClick={() => setIsMobileMenuOpen(false)} className="btn-premium px-10 py-5 text-lg mt-8 shadow-xl">Termin buchen</a>
         </div>
       </header>
     </ConfigProvider>
