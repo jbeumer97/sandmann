@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { blogPosts } from '../../data/blog';
 ---
 
 <Layout title="Blog | Naturheilzentrum Sandmann">
@@ -16,29 +17,31 @@ import Layout from '../../layouts/Layout.astro';
 			</div>
 
 			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
-				{[1, 2, 3].map((i) => (
-					<article class="group space-y-8 cursor-pointer">
-						<div class="relative aspect-[16/10] rounded-[2.5rem] overflow-hidden shadow-xl">
-							<img 
-								src={`https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop`} 
-								alt="Blog Post" 
-								class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-							/>
-							<div class="absolute top-6 left-6 px-4 py-2 glass-premium rounded-full text-[10px] tracking-[0.2em] uppercase font-bold text-forest-deep">TCM</div>
-						</div>
-						<div class="space-y-4 px-4">
-							<span class="text-xs uppercase tracking-widest text-sand-gold font-bold">24. März 2026</span>
-							<h3 class="text-3xl font-playfair text-forest-deep leading-tight group-hover:text-sand-gold transition-colors">
-								Die Kraft der Meridiane: Warum Akupunktur wirklich hilft
-							</h3>
-							<p class="text-forest-deep/60 line-clamp-2">
-								Erfahren Sie, wie feine Nadeln den Energiefluss in Ihrem Körper harmonisieren und Blockaden lösen können.
-							</p>
-							<div class="flex items-center gap-2 text-forest-deep font-bold text-xs uppercase tracking-widest pt-4">
-								Weiterlesen <div class="w-8 h-px bg-forest-deep"></div>
+				{blogPosts.map((post) => (
+					<a href={`/blog/${post.slug}`} class="group">
+						<article class="space-y-8 cursor-pointer">
+							<div class="relative aspect-[16/10] rounded-[2.5rem] overflow-hidden shadow-xl">
+								<img 
+									src={post.image} 
+									alt={post.title} 
+									class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+								/>
+								<div class="absolute top-6 left-6 px-4 py-2 glass-premium rounded-full text-[10px] tracking-[0.2em] uppercase font-bold text-forest-deep">{post.category}</div>
 							</div>
-						</div>
-					</article>
+							<div class="space-y-4 px-4 text-left">
+								<span class="text-xs uppercase tracking-widest text-sand-gold font-bold">{post.date}</span>
+								<h3 class="text-3xl font-playfair text-forest-deep leading-tight group-hover:text-sand-gold transition-colors">
+									{post.title}
+								</h3>
+								<p class="text-forest-deep/60 line-clamp-2">
+									{post.excerpt}
+								</p>
+								<div class="flex items-center gap-2 text-forest-deep font-bold text-xs uppercase tracking-widest pt-4">
+									Weiterlesen <div class="w-8 h-px bg-forest-deep"></div>
+								</div>
+							</div>
+						</article>
+					</a>
 				))}
 			</div>
 		</div>

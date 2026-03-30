@@ -1,0 +1,81 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { blogPosts } from '../../data/blog';
+import { ArrowLeft, Clock, Calendar, User, Share2 } from "lucide-react";
+
+export function getStaticPaths() {
+  return blogPosts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+---
+
+<Layout title={`${post.title} | Magazin | Naturheilzentrum Sandmann`}>
+	<main class="relative bg-sand-sun min-h-screen pt-32 pb-24">
+		<div class="section-container">
+			<a href="/blog" class="inline-flex items-center gap-2 text-forest-deep/40 hover:text-sand-gold transition-colors font-outfit uppercase tracking-widest text-xs mb-12">
+				<ArrowLeft size={16} /> Zurück zum Magazin
+			</a>
+
+			<article class="max-w-4xl mx-auto space-y-16">
+				<div class="space-y-8 text-center">
+					<span class="text-sand-gold font-playfair italic text-2xl">{post.category}</span>
+					<h1 class="text-5xl md:text-7xl font-playfair text-forest-deep leading-tight break-words hyphens-auto" lang="de">
+						{post.title}
+					</h1>
+					
+					<div class="flex flex-wrap items-center justify-center gap-8 text-forest-deep/40 font-outfit text-sm uppercase tracking-widest border-y border-forest-deep/5 py-6">
+						<div class="flex items-center gap-2">
+							<Calendar size={14} class="text-sand-gold" />
+							{post.date}
+						</div>
+						<div class="flex items-center gap-2">
+							<User size={14} class="text-sand-gold" />
+							Redaktion
+						</div>
+						<div class="flex items-center gap-2">
+							<Clock size={14} class="text-sand-gold" />
+							5 Min. Lesezeit
+						</div>
+					</div>
+				</div>
+
+				<div class="relative aspect-[16/9] rounded-[4rem] overflow-hidden shadow-2xl">
+					<img 
+						src={post.image} 
+						alt={post.title} 
+						class="w-full h-full object-cover"
+					/>
+				</div>
+
+				<div class="glass-premium p-10 md:p-20 rounded-[4rem] space-y-10">
+					<div class="prose prose-xl prose-forest max-w-none">
+						{post.content.map((paragraph) => (
+							<p class="text-xl font-outfit text-forest-deep/70 leading-relaxed mb-8">
+								{paragraph}
+							</p>
+						))}
+					</div>
+
+					<div class="pt-16 border-t border-forest-deep/5 flex flex-col md:flex-row items-center justify-between gap-8">
+						<div class="flex items-center gap-4">
+							<span class="font-playfair italic text-xl text-forest-deep">Teilen:</span>
+							<div class="flex gap-4">
+								<div class="w-10 h-10 rounded-full bg-forest-deep/5 flex items-center justify-center text-forest-deep hover:bg-sand-gold hover:text-white transition-all cursor-pointer">
+									<Share2 size={18} />
+								</div>
+							</div>
+						</div>
+						
+						<a href="/kontakt" class="btn-premium bg-sand-gold text-forest-deep hover:bg-forest-deep hover:text-white">
+							Persönliche Beratung anfragen
+						</a>
+					</div>
+				</div>
+			</article>
+		</div>
+	</main>
+</Layout>
