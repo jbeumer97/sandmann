@@ -82,14 +82,21 @@ const Header: React.FC = () => {
 
         {/* Mobile Menu Overlay */}
         <div 
-          className={`fixed inset-0 h-screen w-screen bg-sand-sun/98 backdrop-blur-2xl z-[100] transition-all duration-500 lg:hidden flex flex-col items-center justify-center space-y-8 ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+          className={`fixed inset-0 h-screen w-screen bg-sand-sun/98 backdrop-blur-2xl z-[100] transition-all duration-500 lg:hidden flex flex-col justify-between px-8 py-24 ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
         >
-          <a href="/behandlungen" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-playfair text-forest-deep uppercase tracking-widest hover:text-sand-gold transition-colors">Behandlungen</a>
-          <a href="/team" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-playfair text-forest-deep uppercase tracking-widest hover:text-sand-gold transition-colors">Unser Team</a>
-          <a href="/philosophie" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-playfair text-forest-deep uppercase tracking-widest hover:text-sand-gold transition-colors">Philosophie</a>
-          <a href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-playfair text-forest-deep uppercase tracking-widest hover:text-sand-gold transition-colors">Magazin</a>
-          <a href="/kontakt" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-playfair text-forest-deep uppercase tracking-widest hover:text-sand-gold transition-colors">Kontakt</a>
-          <a href="/kontakt" onClick={() => setIsMobileMenuOpen(false)} className="btn-premium px-10 py-5 text-lg mt-8 shadow-xl">Termin buchen</a>
+          <div className="flex flex-col items-center space-y-8 mt-12">
+            <a href="/behandlungen" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-playfair text-forest-deep uppercase tracking-widest hover:text-sand-gold transition-colors">Behandlungen</a>
+            <a href="/team" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-playfair text-forest-deep uppercase tracking-widest hover:text-sand-gold transition-colors">Unser Team</a>
+            <a href="/philosophie" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-playfair text-forest-deep uppercase tracking-widest hover:text-sand-gold transition-colors">Philosophie</a>
+            <a href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-playfair text-forest-deep uppercase tracking-widest hover:text-sand-gold transition-colors">Magazin</a>
+            <a href="/kontakt" onClick={() => setIsMobileMenuOpen(false)} className="text-3xl font-playfair text-forest-deep uppercase tracking-widest hover:text-sand-gold transition-colors">Kontakt</a>
+          </div>
+          
+          <div className="w-full flex justify-center pb-12">
+            <a href="/kontakt" onClick={() => setIsMobileMenuOpen(false)} className="btn-premium w-full max-w-sm py-6 text-xl tracking-[0.2em] shadow-xl text-center">
+              Termin buchen
+            </a>
+          </div>
         </div>
       </header>
     </ConfigProvider>
