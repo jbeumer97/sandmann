@@ -19,9 +19,9 @@ export default function Hero() {
       {/* Immersive Parallax Background */}
       <motion.div style={{ y, opacity }} className="absolute inset-0 z-0 scale-110">
         <img 
-          src="/images/wellness_massage.jpg" 
-          alt="Natural Healing" 
-          className="w-full h-full object-cover filter brightness-[0.8] saturate-[0.8]"
+          src="/images/hero-premium.png" 
+          alt="Naturheilzentrum Sandmann Preview" 
+          className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-sand-sun scale-105"></div>
       </motion.div>
