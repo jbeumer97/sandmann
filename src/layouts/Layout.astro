@@ -23,7 +23,8 @@ const {
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+		<link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta name="description" content={description} />
@@ -39,25 +40,27 @@ const {
 	<body>
 		<Header client:load />
 		<slot />
-		<footer class="py-20 bg-forest-deep text-sand-sun/30 text-center font-outfit text-xs tracking-[0.4em] uppercase">
-        © 2026 Naturheilzentrum Sandmann • <a href="/impressum" class="hover:text-sand-sun transition-colors">Impressum</a> • <a href="/datenschutz" class="hover:text-sand-sun transition-colors">Datenschutz</a>
+		<footer class="py-24 bg-mineral-beige border-t border-stone-taupe/20 text-deep-charcoal/40 text-center font-sans text-[10px] tracking-[0.4em] uppercase">
+        <div class="section-container space-y-8">
+				<div class="font-serif text-2xl text-deep-charcoal/80 normal-case tracking-normal">Sandmann</div>
+				<div class="flex flex-wrap justify-center gap-x-8 gap-y-4">
+					<a href="/impressum" class="hover:text-tea-green transition-colors">Impressum</a>
+					<a href="/datenschutz" class="hover:text-tea-green transition-colors">Datenschutz</a>
+					<a href="/kontakt" class="hover:text-tea-green transition-colors">Kontakt</a>
+				</div>
+				<p>© 2026 Naturheilzentrum Sandmann • Praxis für ganzheitliche Medizin</p>
+			</div>
       </footer>
 	</body>
 </html>
 
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
 	html {
 		scroll-behavior: smooth;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+	body {
+		overflow-x: hidden;
 	}
 </style>

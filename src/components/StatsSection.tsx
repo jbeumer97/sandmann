@@ -7,24 +7,21 @@ const stats = [
   {
     value: 30,
     suffix: '+',
-    label: 'Jahre Erfahrung',
-    color: 'text-[#5B6759]'
+    label: 'Jahre Exzellenz',
   },
   {
     value: 100,
     suffix: '%',
-    label: 'Zufriedene Patienten',
-    color: 'text-sand-gold'
+    label: 'Wohlbefinden',
   },
   {
     value: 30,
     suffix: '+',
-    label: 'Behandlungsmethoden',
-    color: 'text-[#5B6759]'
+    label: 'Methodiken',
   },
 ];
 
-const AnimatedNumber = ({ value, duration = 2 }: { value: number; duration?: number }) => {
+const AnimatedNumber = ({ value, duration = 3 }: { value: number; duration?: number }) => {
   const [displayValue, setDisplayValue] = useState(0);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
@@ -33,7 +30,7 @@ const AnimatedNumber = ({ value, duration = 2 }: { value: number; duration?: num
     if (isInView) {
       const controls = animate(0, value, {
         duration: duration,
-        ease: "easeOut",
+        ease: [0.22, 1, 0.36, 1],
         onUpdate: (latest) => {
           setDisplayValue(Math.floor(latest));
         },
@@ -47,67 +44,58 @@ const AnimatedNumber = ({ value, duration = 2 }: { value: number; duration?: num
 
 export default function StatsSection() {
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden bg-white">
-      {/* Wave Background Blobs */}
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
-        <div className="absolute -top-[20%] -left-[10%] w-[70vw] h-[70vw] bg-sand-gold/10 blur-[120px] rounded-full animate-float opacity-60"></div>
-        <div className="absolute -bottom-[20%] -right-[10%] w-[60vw] h-[60vw] bg-sage-glow/15 blur-[100px] rounded-full animate-breathe opacity-50"></div>
-        <svg className="absolute inset-0 w-full h-full opacity-[0.03] text-forest-deep" viewBox="0 0 100 100" preserveAspectRatio="none">
-          <path d="M0,50 C20,40 40,60 60,50 C80,40 100,60 100,50 L100,100 L0,100 Z" fill="currentColor" />
-        </svg>
-      </div>
-
+    <section className="relative py-32 lg:py-48 overflow-hidden bg-warm-ivory">
+      <div className="absolute inset-0 bg-noise pointer-events-none opacity-[0.03]"></div>
+      
       <div className="section-container relative z-10">
-        <div className="text-center mb-16 md:mb-24 space-y-4">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-playfair text-forest-deep"
-          >
-            Unsere Ergebnisse sprechen für sich
-          </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-lg md:text-xl font-outfit text-forest-deep/60"
-          >
-            Zahlen untermauern die Wirksamkeit unserer Methoden
-          </motion.p>
-        </div>
+        <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-end">
+          
+          {/* Header Column */}
+          <div className="lg:col-span-5 space-y-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              <span className="text-editorial-caption">ERGEBNISSE</span>
+              <h2 className="text-5xl lg:text-7xl font-serif text-deep-charcoal leading-tight">
+                Ein Fundament aus <br />
+                <span className="italic">Erfahrung.</span>
+              </h2>
+              <p className="text-lg text-stone-taupe font-sans font-light leading-relaxed">
+                Zahlen sind nur ein Teil der Geschichte. Doch sie untermauern die Wirksamkeit unserer ganzheitlichen Ansätze und das Vertrauen, das uns seit Jahrzehnten entgegengebracht wird.
+              </p>
+            </motion.div>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-0 relative">
-          {stats.map((stat, index) => (
-            <div key={index} className="relative group">
+          {/* Stats Column */}
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-12 sm:gap-8">
+            {stats.map((stat, index) => (
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.2, duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-                className="flex flex-col items-center text-center space-y-4 px-8"
+                transition={{ delay: index * 0.2, duration: 1.2 }}
+                className="space-y-4"
               >
+                <div className="h-px w-12 bg-tea-green/30"></div>
                 <div className="flex items-baseline">
-                  <span className={`text-6xl md:text-8xl font-outfit font-bold ${stat.color} tracking-tighter`}>
+                  <span className="text-7xl lg:text-8xl font-serif text-deep-charcoal tracking-tight">
                     <AnimatedNumber value={stat.value} />
                   </span>
-                  <span className={`text-4xl md:text-5xl font-outfit font-medium ${stat.color === 'text-sand-gold' ? 'text-[#5B6759]' : 'text-sand-gold'} ml-1`}>
+                  <span className="text-2xl lg:text-3xl font-serif text-stone-taupe ml-1">
                     {stat.suffix}
                   </span>
                 </div>
-                <div className="w-12 h-0.5 bg-sand-gold/30 group-hover:w-20 transition-all duration-700"></div>
-                <p className="text-lg md:text-xl font-outfit text-forest-deep/70 font-light tracking-wide">
+                <p className="text-[10px] tracking-[0.3em] uppercase text-stone-taupe font-medium font-sans">
                   {stat.label}
                 </p>
               </motion.div>
-              
-              {/* Vertical Divider for Desktop */}
-              {index < stats.length - 1 && (
-                <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-px h-24 bg-gradient-to-b from-transparent via-sand-gold/20 to-transparent"></div>
-              )}
-            </div>
-          ))}
+            ))}
+          </div>
+
         </div>
       </div>
     </section>

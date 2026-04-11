@@ -1,100 +1,112 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Leaf, Check, Info } from 'lucide-react';
 
 const pillars = [
-  { name: 'Akupunktur', desc: 'Gezielte Nadelreize für den Energiefluss' },
-  { name: 'Kräuterheilkunde', desc: 'Individuelle Rezepturen der Natur' },
-  { name: 'Tuina-Massage', desc: 'Traditionelle manuelle Therapie' },
-  { name: 'Ernährung', desc: 'Elemente-Lehre für Ihre Konstitution' },
-  { name: 'Qigong', desc: 'Meditative Bewegungsübungen' },
+  { name: 'Akupunktur', desc: 'Präzise Nadelreize für den freien Qi-Fluss.' },
+  { name: 'Phytotherapie', desc: 'Individuelle Kräuterrezepturen der Natur.' },
+  { name: 'Tuina-Massage', desc: 'Manuelle Therapie zur Blockadenlösung.' },
+  { name: 'Diätetik', desc: 'Fünf-Elemente-Ernährung für Ihre Balance.' },
+  { name: 'Qigong', desc: 'Meditative Übung zur inneren Kultivierung.' },
 ];
 
 const conditions = [
-  "Rückenschmerzen & Ischias", "Gelenkbeschwerden & Arthrose", "Migräne & Kopfschmerz", 
-  "Schlafstörungen", "Verdauungsprobleme", "Emotionale Belastung", "Hormonelle Dysbalance", 
-  "Heuschnupfen & Allergien", "Hauterkrankungen", "Burnout-Prävention"
+  "Rückenschmerzen & Ischias", "Migräne & Kopfschmerm", "Schlafstörungen", 
+  "Verdauungsprobleme", "Hormonelle Dysbalance", "Allergien & Haut", 
+  "Burnout-Prävention"
 ];
 
 export default function TCMSection() {
   return (
-    <section id="tcm" className="section-padding py-32 bg-forest-deep relative overflow-hidden">
-      {/* Decorative Glows */}
-      <div className="absolute top-0 right-[-10%] w-[400px] h-[400px] bg-sand-gold/5 blur-[100px] rounded-full"></div>
+    <section id="tcm" className="py-32 lg:py-56 bg-mineral-beige relative overflow-hidden">
+      {/* Background Motifs */}
+      <div className="absolute top-[20%] right-0 w-[60%] h-px bg-stone-taupe/20 hidden lg:block"></div>
+      <div className="vertical-light-strip right-[10%] top-0 h-[30%]"></div>
       
       <div className="section-container relative z-10">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-            className="space-y-10"
-          >
-            <div className="space-y-4">
-              <span className="text-sand-gold font-playfair italic text-2xl">Tradition trifft Moderne</span>
-              <h2 className="text-5xl md:text-7xl font-playfair text-white leading-tight">
-                Die 5 Säulen <br />der <span className="text-sage-glow">TCM</span>
+        <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-start">
+          
+          {/* Left Column: Image & Decorative Detail */}
+          <div className="lg:col-span-5 relative order-2 lg:order-1">
+            <motion.div
+              initial={{ opacity: 0, scale: 1.05 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+              className="relative aspect-[4/5] overflow-hidden rounded-sm shadow-xl"
+            >
+              <img 
+                src="/images/tcm-ritual.png" 
+                alt="TCM Ritual Akupunktur" 
+                className="w-full h-full object-cover grayscale-[0.2] contrast-[1.1]"
+              />
+              <div className="absolute inset-0 bg-tea-green/5 mix-blend-multiply"></div>
+            </motion.div>
+            
+            {/* Fine Meridian Line Detail Overlay */}
+            <div className="absolute top-1/2 -right-8 w-16 h-px bg-tea-green hidden lg:block"></div>
+          </div>
+
+          {/* Right Column: Content */}
+          <div className="lg:col-span-7 space-y-16 lg:pt-12 order-1 lg:order-2">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.2 }}
+              className="space-y-6"
+            >
+              <span className="text-editorial-caption">
+                TRADITIONELLE CHINESISCHE MEDIZIN
+              </span>
+              <h2 className="text-5xl md:text-8xl leading-[0.9] text-deep-charcoal max-w-xl">
+                Die fünf Säulen <br />
+                <span className="italic">der Harmonie.</span>
               </h2>
-            </div>
-            
-            <p className="text-sand-sun/70 font-outfit text-xl leading-relaxed">
-              Die Traditionelle Chinesische Medizin (TCM) ist ein seit über 2.000 Jahren bewährtes Heilsystem. Wir harmonisieren den Qi-Fluss, um Ihre Selbstheilungskräfte nachhaltig zu aktivieren.
-            </p>
-
-            <div className="space-y-6">
-              {pillars.map((pillar, i) => (
-                <motion.div 
-                  key={pillar.name}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="flex items-start gap-4 group"
-                >
-                  <div className="w-10 h-px bg-sand-gold mt-4 group-hover:w-16 transition-all duration-500"></div>
-                  <div>
-                    <h4 className="font-playfair text-xl text-sand-sun">{pillar.name}</h4>
-                    <p className="text-sand-sun/40 text-sm italic">{pillar.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-            className="glass-dark p-12 rounded-[4rem] border-white/5 relative group overflow-hidden"
-          >
-            <div className="absolute top-0 right-0 p-8 text-sand-gold/20 group-hover:text-sand-gold/40 transition-colors">
-              <Leaf size={120} strokeWidth={1} />
-            </div>
-            
-            <h3 className="text-3xl font-playfair text-white mb-8">Anwendungsgebiete</h3>
-            <p className="text-sand-sun/50 text-sm mb-10 font-outfit uppercase tracking-widest">Wobei wir Ihnen helfen können:</p>
-
-            <div className="grid sm:grid-cols-2 gap-4">
-              {conditions.map((item) => (
-                <div key={item} className="flex items-center gap-3 text-sand-sun/80 font-outfit">
-                  <div className="w-1.5 h-1.5 rounded-full bg-sand-gold shadow-[0_0_8px_rgba(212,175,55,0.8)]"></div>
-                  {item}
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-12 pt-12 border-t border-white/10 flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-sand-gold/20 flex items-center justify-center text-sand-gold">
-                <Info size={24} />
-              </div>
-              <p className="text-sand-sun/60 text-sm italic font-outfit">
-                Individuelle Puls- und Zungendiagnose für Ihren persönlichen Therapieplan.
+              <p className="max-w-lg text-lg text-stone-taupe leading-relaxed font-sans">
+                Seit über zwei Jahrtausenden bewährt: Die TCM betrachtet den Menschen als Ganzes. Wir lösen energetische Blockaden und aktivieren Ihre natürlichen Selbstheilungskräfte durch ein präzise abgestimmtes Heilsystem.
               </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 gap-12">
+              <div className="space-y-8">
+                <h4 className="text-[10px] tracking-[0.3em] uppercase text-tea-green font-medium">Behandlungsschwerpunkte</h4>
+                <div className="space-y-6">
+                  {pillars.map((pillar, i) => (
+                    <motion.div 
+                      key={pillar.name}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.1 }}
+                      className="group"
+                    >
+                      <h5 className="font-serif text-2xl text-deep-charcoal group-hover:text-tea-green transition-colors">{pillar.name}</h5>
+                      <p className="text-sm text-stone-taupe font-sans mt-1">{pillar.desc}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="space-y-8 p-10 bg-warm-ivory/50 backdrop-blur-sm border border-stone-taupe/10 rounded-sm">
+                <h4 className="text-[10px] tracking-[0.3em] uppercase text-stone-taupe font-medium">Anwendungsfelder</h4>
+                <ul className="space-y-4">
+                  {conditions.map((item) => (
+                    <li key={item} className="flex items-center gap-4 text-sm text-deep-charcoal/80 font-sans">
+                      <div className="w-1 h-1 rounded-full bg-tea-green/40"></div>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <div className="pt-6 border-t border-stone-taupe/10">
+                   <p className="text-xs italic text-stone-taupe font-serif">
+                     "Jede Symptomatik ist ein Signal des Körpers, das wir gemeinsam entschlüsseln."
+                   </p>
+                </div>
+              </div>
             </div>
-          </motion.div>
+          </div>
+
         </div>
       </div>
     </section>
